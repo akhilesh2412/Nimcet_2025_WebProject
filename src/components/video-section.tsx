@@ -117,33 +117,36 @@ export function VideoSection({ videos }: { videos: Content[] }) {
         </Card>
     );
 
+    const groupedItems = processedVideos.filter((item): item is GroupedVideoItem => item.isGroup);
+    const singleItems = processedVideos.filter((item): item is SingleVideoItem => !item.isGroup);
+
+
     return (
         <>
             <div className="space-y-2">
-                {processedVideos.map((item) => {
-                    if (item.isGroup) {
-                        return (
-                             <Accordion type="single" collapsible key={item.title}>
-                                <Card className="overflow-hidden">
-                                    <AccordionItem value={item.title} className="border-b-0">
-                                        <AccordionTrigger className="p-4 hover:no-underline font-semibold text-lg hover:bg-muted/50">
-                                            {item.title}
-                                        </AccordionTrigger>
-                                        <AccordionContent>
-                                            <div className="space-y-2 pt-2 px-3 pb-3 border-t">
-                                                {item.videos.map((video) => (
-                                                    <VideoItemCard key={video.id} video={video} />
-                                                ))}
-                                            </div>
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                </Card>
-                            </Accordion>
-                        )
-                    } else {
-                        return <VideoItemCard key={item.video.id} video={item.video} />
-                    }
-                })}
+                {groupedItems.length > 0 && (
+                    <Accordion type="single" collapsible className="w-full">
+                        {groupedItems.map((item, index) => (
+                             <Card className="overflow-hidden" key={`${item.title}-${index}`}>
+                                <AccordionItem value={item.title} className="border-b-0">
+                                    <AccordionTrigger className="p-4 hover:no-underline font-semibold text-lg hover:bg-muted/50">
+                                        {item.title}
+                                    </AccordionTrigger>
+                                    <AccordionContent>
+                                        <div className="space-y-2 pt-2 px-3 pb-3 border-t">
+                                            {item.videos.map((video) => (
+                                                <VideoItemCard key={video.id} video={video} />
+                                            ))}
+                                        </div>
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Card>
+                        ))}
+                    </Accordion>
+                )}
+                {singleItems.map((item, index) => (
+                    <VideoItemCard key={item.video.id} video={item.video} />
+                ))}
             </div>
 
             <Dialog open={!!selectedDirectVideo} onOpenChange={(open) => !open && handleClosePlayer()}>
