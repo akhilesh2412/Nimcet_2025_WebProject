@@ -108,7 +108,7 @@ export function VideoSection({ videos }: { videos: Content[] }) {
 
             <Dialog open={!!selectedDirectVideo} onOpenChange={(open) => !open && handleClosePlayer()}>
                 <DialogContent className="max-w-4xl p-0 border-0 bg-transparent shadow-none">
-                    {selectedDirectVideo && directSources && (
+                    {selectedDirectVideo && directSources && directSources.length > 0 && (
                         <>
                            <DialogTitle className="sr-only">{selectedDirectVideo.title}</DialogTitle>
                            <VideoPlayer sources={directSources} title={selectedDirectVideo.title} onEnd={handleClosePlayer} />
