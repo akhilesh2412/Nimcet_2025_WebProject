@@ -198,7 +198,7 @@ export const courseData: Course[] = [
   {
     id: 'web-development-course',
     title: 'Web Development Course',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://img-c.udemycdn.com/course/750x422/6035102_7d1a.jpg',
     imageHint: 'web development',
     category: 'Tech',
     price: 4999,
