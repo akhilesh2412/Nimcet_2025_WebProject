@@ -177,7 +177,22 @@ export const practiceSheetsData: Content[] = [
     { id: 'ps17', title: 'Statistics', url: 'https://static.pw.live/5eb393ee95fab7468a79d189/ADMIN/3a83c042-bf21-4fc7-b3a4-3467984f3da1.pdf', description: 'Download the practice sheet for Statistics.' },
 ];
 
-export const mindMapsData: Content[] = [];
+export const mindMapsData: Content[] = [
+    { id: 'mm1', title: 'Probability', url: 'https://dl.tamilupdates.workers.dev/dl/6867b3a8e7c10aa8f973e5d8', description: 'Explore the mind map for Probability.' },
+    { id: 'mm2', title: 'Sets', url: 'https://dl.tamilupdates.workers.dev/dl/6867b3abe7c10aa8f973e5dc', description: 'Explore the mind map for Sets.' },
+    { id: 'mm3', title: 'Trigonometric equations and functions', url: 'https://dl.tamilupdates.workers.dev/dl/6867b3a8e7c10aa8f973e5d9', description: 'Explore the mind map for Trigonometric equations and functions.' },
+    { id: 'mm4', title: 'Complex Number', url: 'https://dl.tamilupdates.workers.dev/dl/6867b3a9e7c10aa8f973e5da', description: 'Explore the mind map for Complex Number.' },
+    { id: 'mm5', title: 'Quadratic Equation', url: 'https://dl.tamilupdates.workers.dev/dl/6867b3aae7c10aa8f973e5db', description: 'Explore the mind map for Quadratic Equation.' },
+    { id: 'mm6', title: 'Permutation and Combination', url: 'https://dl.tamilupdates.workers.dev/dl/6867b3a2e7c10aa8f973e5d7', description: 'Explore the mind map for Permutation and Combination.' },
+    { id: 'mm7', title: 'Sequence and Series', url: 'https://dl.tamilupdates.workers.dev/dl/6867b3a1e7c10aa8f973e5d6', description: 'Explore the mind map for Sequence and Series.' },
+    { id: 'mm8', title: 'Binomial Theorem', url: 'https://dl.tamilupdates.workers.dev/dl/6867b39fe7c10aa8f973e5d5', description: 'Explore the mind map for Binomial Theorem.' },
+    { id: 'mm9', title: 'Circle', url: 'https://dl.tamilupdates.workers.dev/dl/6867b39ce7c10aa8f973e5d4', description: 'Explore the mind map for Circle.' },
+    { id: 'mm10', title: 'Straight Line', url: 'https://dl.tamilupdates.workers.dev/dl/6867b397e7c10aa8f973e5d3', description: 'Explore the mind map for Straight Line.' },
+    { id: 'mm11', title: 'Solutions of a Triangle', url: 'https://dl.tamilupdates.workers.dev/dl/6867b395e7c10aa8f973e5d2', description: 'Explore the mind map for Solutions of a Triangle.' },
+    { id: 'mm12', title: 'Parabola', url: 'https://dl.tamilupdates.workers.dev/dl/6867b38de7c10aa8f973e5d1', description: 'Explore the mind map for Parabola.' },
+    { id: 'mm13', title: 'Hyperbola', url: 'https://dl.tamilupdates.workers.dev/dl/6867b385e7c10aa8f973e5cf', description: 'Explore the mind map for Hyperbola.' },
+    { id: 'mm14', title: 'Ellipse', url: 'https://dl.tamilupdates.workers.dev/dl/6867b37be7c10aa8f973e5ce', description: 'Explore the mind map for Ellipse.' },
+];
 
 export const shortNotesData: Content[] = [
     { id: 'sn1', title: 'Binomial Theorem', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae8fe7c10aa8f973e5c7', description: 'Download the short notes for Binomial Theorem.' },
