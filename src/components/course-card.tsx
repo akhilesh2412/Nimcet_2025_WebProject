@@ -40,12 +40,12 @@ export function CourseCard({ course }: CourseCardProps) {
             className="object-cover"
             data-ai-hint={course.imageHint}
           />
-          <Badge variant="secondary" className="absolute top-3 left-3 bg-yellow-400 text-black border-none hover:bg-yellow-500">
+          <Badge variant="secondary" className="absolute top-3 left-3 bg-yellow-400 text-black border-none hover:bg-yellow-500 text-[10px] sm:text-xs px-2 sm:px-2.5">
             {course.category}
           </Badge>
-          <div className="absolute top-3 right-3 bg-yellow-400 text-black text-xs font-bold px-2 py-1 rounded-md">
+          <div className="absolute top-3 right-3 bg-yellow-400 text-black text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
             {course.originalPrice && (
-              <span className="line-through text-gray-700 mr-1.5">₹{course.originalPrice}/-</span>
+              <span className="line-through text-black/70 mr-1.5">₹{course.originalPrice}/-</span>
             )}
             <span>₹{course.price}/-</span>
           </div>
