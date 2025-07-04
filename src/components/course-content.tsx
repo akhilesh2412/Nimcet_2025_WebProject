@@ -4,34 +4,8 @@ import Link from 'next/link';
 import type { Course } from '@/lib/data';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { BookOpen } from 'lucide-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { VideoSection } from '@/components/video-section';
 
 export function CourseContent({ course }: { course: Course }) {
-  // Special layout for Web Development Course
-  if (course.id === 'web-development-course') {
-    if (!course.subjects.length) {
-      return <p>No content available yet.</p>;
-    }
-    return (
-      <Tabs defaultValue={course.subjects[0].id} className="w-full">
-        <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-4 h-auto">
-          {course.subjects.map(subject => (
-            <TabsTrigger key={subject.id} value={subject.id} className="text-xs sm:text-sm">
-              {subject.name}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-        {course.subjects.map(subject => (
-          <TabsContent key={subject.id} value={subject.id} className="mt-6">
-            <VideoSection videos={subject.videos} />
-          </TabsContent>
-        ))}
-      </Tabs>
-    );
-  }
-
-  // Default layout for all other courses
   if (course.subjects.length === 0) {
     return (
       <Card>

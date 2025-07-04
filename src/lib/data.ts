@@ -204,8 +204,8 @@ export const courseData: Course[] = [
     price: 4999,
     subjects: [
       {
-        id: 'before-journey',
-        name: 'Before Web Dev Journey',
+        id: 'full-web-development-course',
+        name: 'Full Web Development Course',
         videos: [
           { id: 'wd-b4j-v1', title: 'Video-01', description: 'Course content video 1.', sources: [{ type: 'gdrive', fileId: '1i63Ni97mlNNeIIGc6fPKc4XniT6bMu69' }] },
           { id: 'wd-b4j-v2', title: 'Video-02', description: 'Course content video 2.', sources: [{ type: 'gdrive', fileId: '1yWVk51WxwQxnqJFG_nvicX5KWnnEKbje' }] },
@@ -213,41 +213,14 @@ export const courseData: Course[] = [
           { id: 'wd-b4j-v4', title: 'Video-04', description: 'Course content video 4.', sources: [{ type: 'gdrive', fileId: '1MvexkzWfBglSDi9-tujuj22c127vQR2J' }] },
           { id: 'wd-b4j-v5', title: 'Video-05', description: 'Course content video 5.', sources: [{ type: 'gdrive', fileId: '1PAIka97cvEgELKav_oNkF3kNZtlG_SKQ' }] },
           { id: 'wd-b4j-v6', title: 'Video-06', description: 'Course content video 6.', sources: [{ type: 'gdrive', fileId: '15HDq3zKrOQ5gsWqF6tsreylMp_h5B-HJ' }] },
-        ],
-        dpps: [],
-        notes: [],
-        solutions: [],
-      },
-      {
-        id: 'basics-dev',
-        name: 'Basics of Development',
-        videos: [
           { id: 'wd-bod-v1', title: 'Video-01', description: 'Course content video 1.', sources: [{ type: 'gdrive', fileId: '1FstCwx8zvB53cC4LYZGn8ZvpzdLnPajX' }] },
           { id: 'wd-bod-v2', title: 'Video-02', description: 'Course content video 2.', sources: [{ type: 'gdrive', fileId: '1l1y4ruM5lFhzi-MHCZ_XJ6kBXa8RW_bR' }] },
           { id: 'wd-bod-v3', title: 'Video-03', description: 'Course content video 3.', sources: [{ type: 'gdrive', fileId: '1fAyIi5URg7sfRoln1UQH1Qvm2saOEkUW' }] },
-        ],
-        dpps: [],
-        notes: [],
-        solutions: [],
-      },
-      {
-        id: 'learn-html',
-        name: 'Learn HTML',
-        videos: [
           { id: 'wd-html-v1', title: 'Video-01', description: 'Course content video 1.', sources: [{ type: 'gdrive', fileId: '1AOxGIbvwlt2dJBpiWKNCVQw7cs9AUqHn' }] },
           { id: 'wd-html-v2', title: 'Video-02', description: 'Course content video 2.', sources: [{ type: 'gdrive', fileId: '19rOIfj-q_6td-IBrIzJuFfFCM360L3ZD' }] },
           { id: 'wd-html-v3', title: 'Video-03', description: 'Course content video 3.', sources: [{ type: 'gdrive', fileId: '14wBcNKDcHGUtc4EF5ixr5lE24kC212Wy' }] },
           { id: 'wd-html-v4', title: 'Video-04', description: 'Course content video 4.', sources: [{ type: 'gdrive', fileId: '1jCWVYf6rnGgDCJODZ67rbRuIeeM-D2Aw' }] },
           { id: 'wd-html-v5', title: 'Video-05', description: 'Course content video 5.', sources: [{ type: 'gdrive', fileId: '1OkxyK4dYbw0JBTR_ZpAG3zSe7pKsevVq' }] },
-        ],
-        dpps: [],
-        notes: [],
-        solutions: [],
-      },
-      {
-        id: 'learn-css',
-        name: 'Learn about CSS',
-        videos: [
           { id: 'wd-css-v1', title: 'Video-01', description: 'Course content video 1.', sources: [{ type: 'gdrive', fileId: '1tGtHW71B-DY8Hud-qJVlaG4bdCDhTIbL' }] },
           { id: 'wd-css-v2', title: 'Video-02', description: 'Course content video 2.', sources: [{ type: 'gdrive', fileId: '1nCf0NpbMk0FmfMdmJcXalLxuBsA1yOdJ' }] },
           { id: 'wd-css-v3', title: 'Video-03', description: 'Course content video 3.', sources: [{ type: 'gdrive', fileId: '1ipmWKj6btRcKN1LVDbrWpJJJhV_FE6mC' }] },

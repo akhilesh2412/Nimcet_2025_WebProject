@@ -24,6 +24,15 @@ type SingleVideoItem = {
 
 type ProcessedVideoItem = GroupedVideoItem | SingleVideoItem;
 
+const groupingRules: Record<string, (video: Content) => boolean> = {
+    'Set Theory': (video: Content) => video.title.toLowerCase().startsWith('set '),
+    'Before Web Dev Journey': (video: Content) => video.id.startsWith('wd-b4j-'),
+    'Basics of Development': (video: Content) => video.id.startsWith('wd-bod-'),
+    'Learn HTML': (video: Content) => video.id.startsWith('wd-html-'),
+    'Learn about CSS': (video: Content) => video.id.startsWith('wd-css-'),
+};
+
+
 export function VideoSection({ videos }: { videos: Content[] }) {
     const [selectedDirectVideo, setSelectedDirectVideo] = useState<Content | null>(null);
     const [selectedGdriveVideo, setSelectedGdriveVideo] = useState<Content | null>(null);
@@ -34,8 +43,15 @@ export function VideoSection({ videos }: { videos: Content[] }) {
         const singles: Content[] = [];
 
         videos.forEach(video => {
-            if (video.title.toLowerCase().startsWith('set ')) {
-                const groupTitle = "Set Theory";
+            let groupTitle: string | null = null;
+            for (const title in groupingRules) {
+                if (groupingRules[title](video)) {
+                    groupTitle = title;
+                    break;
+                }
+            }
+
+            if (groupTitle) {
                 if (!groups[groupTitle]) {
                     groups[groupTitle] = [];
                 }
@@ -56,6 +72,7 @@ export function VideoSection({ videos }: { videos: Content[] }) {
             result.push({ isGroup: false, video });
         });
 
+        // Ensure groups appear before single items
         result.sort((a, b) => {
             if (a.isGroup && !b.isGroup) return -1;
             if (!a.isGroup && b.isGroup) return 1;
@@ -125,7 +142,7 @@ export function VideoSection({ videos }: { videos: Content[] }) {
         <>
             <div className="space-y-2">
                 {groupedItems.length > 0 && (
-                    <Accordion type="single" collapsible className="w-full">
+                    <Accordion type="single" collapsible className="w-full space-y-2">
                         {groupedItems.map((item, index) => (
                              <Card className="overflow-hidden" key={`${item.title}-${index}`}>
                                 <AccordionItem value={item.title} className="border-b-0">
@@ -144,9 +161,11 @@ export function VideoSection({ videos }: { videos: Content[] }) {
                         ))}
                     </Accordion>
                 )}
-                {singleItems.map((item, index) => (
-                    <VideoItemCard key={item.video.id} video={item.video} />
-                ))}
+                <div className="space-y-2">
+                    {singleItems.map((item) => (
+                        <VideoItemCard key={item.video.id} video={item.video} />
+                    ))}
+                </div>
             </div>
 
             <Dialog open={!!selectedDirectVideo} onOpenChange={(open) => !open && handleClosePlayer()}>
