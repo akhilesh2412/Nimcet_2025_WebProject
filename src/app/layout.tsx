@@ -7,7 +7,7 @@ import { AuthWrapper } from '@/components/AuthWrapper';
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'Course Compass',
+  title: 'Next Toppers',
   description: 'Your guide to mastering new skills.',
 };
 
@@ -26,8 +26,8 @@ export default function RootLayout({
       <body className="font-body antialiased flex flex-col h-full bg-background">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <AuthProvider>
