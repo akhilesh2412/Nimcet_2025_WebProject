@@ -19,7 +19,9 @@ export function Footer() {
             <h4 className="text-lg font-semibold text-foreground tracking-wider uppercase">Quick Links</h4>
             <ul className="mt-4 space-y-2 text-sm">
               <li><Link href="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link></li>
-              <li><Link href="/mind-maps" className="text-muted-foreground hover:text-primary transition-colors">Practice Sheets</Link></li>
+              <li><Link href="/practice-sheets" className="text-muted-foreground hover:text-primary transition-colors">Practice Sheets</Link></li>
+              <li><Link href="/mind-maps" className="text-muted-foreground hover:text-primary transition-colors">Mind Maps</Link></li>
+              <li><Link href="/short-notes" className="text-muted-foreground hover:text-primary transition-colors">Short Notes</Link></li>
               <li><Link href="/contact-us" className="text-muted-foreground hover:text-primary transition-colors">Contact Us</Link></li>
             </ul>
           </div>

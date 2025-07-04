@@ -17,7 +17,9 @@ import { SessionTimer } from './SessionTimer';
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'Practice Sheets', href: '/mind-maps' },
+  { label: 'Practice Sheets', href: '/practice-sheets' },
+  { label: 'Mind Maps', href: '/mind-maps' },
+  { label: 'Short Notes', href: '/short-notes' },
   { label: 'Contact Us', href: '/contact-us' },
 ];
 
