@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import type { Content, DirectVideoSource, GoogleDriveVideoSource } from '@/lib/data';
 import { VideoPlayer } from '@/components/video-player';
 import { GoogleDrivePlayer } from '@/components/google-drive-player';
@@ -9,11 +9,62 @@ import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { X, PlayCircle, CircleHelp } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
+type GroupedVideoItem = {
+    isGroup: true;
+    title: string;
+    videos: Content[];
+};
+
+type SingleVideoItem = {
+    isGroup: false;
+    video: Content;
+};
+
+type ProcessedVideoItem = GroupedVideoItem | SingleVideoItem;
 
 export function VideoSection({ videos }: { videos: Content[] }) {
     const [selectedDirectVideo, setSelectedDirectVideo] = useState<Content | null>(null);
     const [selectedGdriveVideo, setSelectedGdriveVideo] = useState<Content | null>(null);
     const { toast } = useToast();
+
+    const processedVideos = useMemo(() => {
+        const groups: Record<string, Content[]> = {};
+        const singles: Content[] = [];
+
+        videos.forEach(video => {
+            if (video.title.toLowerCase().startsWith('set ')) {
+                const groupTitle = "Set Theory";
+                if (!groups[groupTitle]) {
+                    groups[groupTitle] = [];
+                }
+                groups[groupTitle].push(video);
+            } else {
+                singles.push(video);
+            }
+        });
+
+        const result: ProcessedVideoItem[] = [];
+        
+        const groupTitles = Object.keys(groups).sort();
+        groupTitles.forEach(title => {
+            result.push({ isGroup: true, title, videos: groups[title] });
+        });
+
+        singles.forEach(video => {
+            result.push({ isGroup: false, video });
+        });
+
+        result.sort((a, b) => {
+            if (a.isGroup && !b.isGroup) return -1;
+            if (!a.isGroup && b.isGroup) return 1;
+            return 0;
+        });
+
+        return result;
+
+    }, [videos]);
 
     const handleVideoSelect = (video: Content) => {
         if (video.sources && video.sources.length > 0) {
@@ -34,7 +85,7 @@ export function VideoSection({ videos }: { videos: Content[] }) {
     const handleClosePlayer = () => {
         setSelectedDirectVideo(null);
         setSelectedGdriveVideo(null);
-    }
+    };
 
     const directSources = selectedDirectVideo?.sources?.filter(s => s.type === 'direct') as DirectVideoSource[] | undefined;
     const gdriveSource = selectedGdriveVideo?.sources?.find(s => s.type === 'gdrive') as GoogleDriveVideoSource | undefined;
@@ -48,28 +99,51 @@ export function VideoSection({ videos }: { videos: Content[] }) {
         );
     }
 
+    const VideoItemCard = ({ video }: { video: Content }) => (
+        <Card
+            onClick={() => handleVideoSelect(video)}
+            className="flex items-center justify-between p-3 rounded-md cursor-pointer hover:bg-muted group"
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleVideoSelect(video) }}
+        >
+            <div className="flex flex-col">
+                <p className="font-medium">{video.title}</p>
+                {video.description && <p className="text-sm text-muted-foreground">{video.description}</p>}
+            </div>
+            {video.sources && video.sources.length > 0 && (
+                <PlayCircle className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors" />
+            )}
+        </Card>
+    );
+
     return (
         <>
             <div className="space-y-2">
-                {videos.map((video) => (
-                     <div key={video.id}>
-                        <Card
-                            onClick={() => handleVideoSelect(video)}
-                            className="flex items-center justify-between p-3 rounded-md cursor-pointer hover:bg-muted group"
-                            role="button"
-                            tabIndex={0}
-                            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleVideoSelect(video) }}
-                        >
-                            <div className="flex flex-col">
-                                <p className="font-medium">{video.title}</p>
-                                {video.description && <p className="text-sm text-muted-foreground">{video.description}</p>}
-                            </div>
-                            {video.sources && video.sources.length > 0 && (
-                                <PlayCircle className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors" />
-                            )}
-                        </Card>
-                    </div>
-                ))}
+                {processedVideos.map((item) => {
+                    if (item.isGroup) {
+                        return (
+                             <Accordion type="single" collapsible key={item.title}>
+                                <Card className="overflow-hidden">
+                                    <AccordionItem value={item.title} className="border-b-0">
+                                        <AccordionTrigger className="p-4 hover:no-underline font-semibold text-lg hover:bg-muted/50">
+                                            {item.title}
+                                        </AccordionTrigger>
+                                        <AccordionContent>
+                                            <div className="space-y-2 pt-2 px-3 pb-3 border-t">
+                                                {item.videos.map((video) => (
+                                                    <VideoItemCard key={video.id} video={video} />
+                                                ))}
+                                            </div>
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                </Card>
+                            </Accordion>
+                        )
+                    } else {
+                        return <VideoItemCard key={item.video.id} video={item.video} />
+                    }
+                })}
             </div>
 
             <Dialog open={!!selectedDirectVideo} onOpenChange={(open) => !open && handleClosePlayer()}>
