@@ -7,6 +7,7 @@ import {
   SheetContent,
   SheetTrigger,
   SheetClose,
+  SheetTitle,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
@@ -53,6 +54,7 @@ export function Header() {
           </Button>
         </SheetTrigger>
         <SheetContent side="left">
+          <SheetTitle className="sr-only">Menu</SheetTitle>
           <div className="flex flex-col h-full">
             <div className="p-4 border-b">
                <SheetClose asChild>
