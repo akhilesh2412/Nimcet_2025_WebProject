@@ -175,7 +175,7 @@ export function VideoSection({ videos }: { videos: Content[] }) {
             </div>
 
             <Dialog open={!!selectedDirectVideo} onOpenChange={(open) => !open && handleClosePlayer()}>
-                <DialogContent className="max-w-4xl p-0 border-0 bg-transparent shadow-none">
+                <DialogContent className="max-w-4xl p-0 border-0 bg-transparent shadow-none" hideCloseButton>
                     {selectedDirectVideo && directSources && directSources.length > 0 && (
                         <>
                            <DialogTitle className="sr-only">{selectedDirectVideo.title}</DialogTitle>
@@ -186,7 +186,7 @@ export function VideoSection({ videos }: { videos: Content[] }) {
             </Dialog>
 
             <Dialog open={!!selectedGdriveVideo} onOpenChange={(open) => !open && handleClosePlayer()}>
-                <DialogContent className="max-w-4xl p-0 border-0 bg-black flex flex-col">
+                <DialogContent className="max-w-4xl p-0 border-0 bg-black flex flex-col" hideCloseButton>
                     {selectedGdriveVideo && gdriveSource && (
                         <>
                             <DialogHeader className="flex-shrink-0 flex flex-row items-center justify-between p-2 sm:p-4 border-b bg-card">
@@ -205,7 +205,7 @@ export function VideoSection({ videos }: { videos: Content[] }) {
             </Dialog>
             
             <Dialog open={!!selectedYoutubeVideo} onOpenChange={(open) => !open && handleClosePlayer()}>
-                <DialogContent className="max-w-4xl p-0 border-0 bg-black flex flex-col">
+                <DialogContent className="max-w-4xl p-0 border-0 bg-black flex flex-col" hideCloseButton>
                     {selectedYoutubeVideo && youtubeSource && (
                         <>
                             <DialogHeader className="flex-shrink-0 flex flex-row items-center justify-between p-2 sm:p-4 border-b bg-card">
