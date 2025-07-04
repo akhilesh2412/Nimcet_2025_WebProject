@@ -11,6 +11,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/context/AuthContext';
+import { SessionTimer } from './SessionTimer';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -21,6 +23,7 @@ const navItems = [
 
 export function Header() {
   const pathname = usePathname();
+  const { isAuthenticated } = useAuth();
 
   const DesktopNav = () => (
     <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
@@ -104,6 +107,11 @@ export function Header() {
           
           <div className="flex items-center gap-4">
             <DesktopNav />
+            {isAuthenticated && (
+              <div className="hidden lg:block">
+                <SessionTimer />
+              </div>
+            )}
             <div className="hidden md:block">
                <a
                 href="https://t.me/"

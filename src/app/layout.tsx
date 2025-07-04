@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/components/header';
 import { Toaster } from '@/components/ui/toaster';
+import { AuthProvider } from '@/context/AuthContext';
+import { AuthWrapper } from '@/components/AuthWrapper';
 
 export const metadata: Metadata = {
   title: 'Course Compass',
@@ -21,11 +23,15 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased flex flex-col h-full">
-        <Header />
-        <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {children}
-        </main>
-        <Toaster />
+        <AuthProvider>
+            <AuthWrapper>
+                <Header />
+                <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                  {children}
+                </main>
+                <Toaster />
+            </AuthWrapper>
+        </AuthProvider>
       </body>
     </html>
   );
