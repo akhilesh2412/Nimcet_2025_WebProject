@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
+import { LoadingScreen } from '@/components/LoadingScreen';
 
 const PIN = '1234'; // Hardcoded PIN
 const SESSION_DURATION = 48 * 60 * 60 * 1000; // 48 hours in milliseconds
@@ -55,7 +56,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {isLoaded ? children : null}
+      {isLoaded ? children : <LoadingScreen />}
     </AuthContext.Provider>
   );
 }
