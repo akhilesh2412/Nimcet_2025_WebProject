@@ -6,7 +6,7 @@ import { Video, FileText, Notebook, GraduationCap } from 'lucide-react';
 import { ContentList } from '@/components/content-list';
 import { VideoSection } from '@/components/video-section';
 
-export default function SubjectPage({ params }: { params: { courseId: string, subjectId: string } }) {
+export default async function SubjectPage({ params }: { params: { courseId: string, subjectId: string } }) {
   const course = getCourseById(params.courseId);
   const subject = getSubjectByIds(params.courseId, params.subjectId);
 

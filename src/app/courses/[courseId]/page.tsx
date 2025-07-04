@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import { Breadcrumbs } from '@/components/breadcrumbs';
 
-export default function CoursePage({ params }: { params: { courseId: string } }) {
+export default async function CoursePage({ params }: { params: { courseId: string } }) {
   const course = getCourseById(params.courseId);
 
   if (!course) {
