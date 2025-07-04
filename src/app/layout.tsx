@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { AuthProvider } from '@/context/AuthContext';
 import { AuthWrapper } from '@/components/AuthWrapper';
 import { ThemeProvider } from '@/components/theme-provider';
+import { BackgroundAnimation } from '@/components/background-animation';
 
 export const metadata: Metadata = {
   title: 'Course Compass',
@@ -30,10 +31,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <BackgroundAnimation />
           <AuthProvider>
               <AuthWrapper>
                   <Header />
-                  <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                  <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10 bg-transparent">
                     {children}
                   </main>
                   <Toaster />
