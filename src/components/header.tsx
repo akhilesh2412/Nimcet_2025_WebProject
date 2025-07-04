@@ -86,6 +86,9 @@ export function Header() {
             >
               NIMCET 2026
             </Link>
+          </div>
+          
+          <div className="flex items-center gap-4">
             <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
               {navItems.map((item) => (
                 <Link
@@ -100,9 +103,6 @@ export function Header() {
                 </Link>
               ))}
             </nav>
-          </div>
-          
-          <div className="flex items-center gap-4">
             <div className="hidden md:flex">
                 <SessionTimer />
             </div>
