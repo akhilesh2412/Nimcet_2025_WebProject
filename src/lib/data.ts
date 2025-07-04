@@ -1,3 +1,4 @@
+
 export type DirectVideoSource = {
   type: 'direct';
   quality: string;
@@ -53,7 +54,9 @@ export const courseData: Course[] = [
         id: 'maths',
         name: 'Maths',
         videos: [
-          { id: 'math-1', title: 'Set Theory', description: 'Explore the fundamentals of sets.' },
+          { id: 'math-1-1', title: 'Set 01', description: 'Introduction to Set Theory.', sources: [{ type: 'direct', quality: '720p', url: 'https://dl.tamilupdates.workers.dev/dl/6867bdf6e7c10aa8f973e5df' }] },
+          { id: 'math-1-2', title: 'Set 02', description: 'Continuing with Set Theory concepts.', sources: [{ type: 'direct', quality: '720p', url: 'https://dl.tamilupdates.workers.dev/dl/6867be06e7c10aa8f973e5e1' }] },
+          { id: 'math-1-3', title: 'Set 03', description: 'Advanced topics in Set Theory.', sources: [{ type: 'direct', quality: '720p', url: 'https://dl.tamilupdates.workers.dev/dl/6867be05e7c10aa8f973e5e0' }] },
           { id: 'math-2', title: 'Relations and Functions', description: 'Understand relationships between sets.' },
           { id: 'math-3', title: 'Sequence and Series', description: 'Learn about arithmetic and geometric progressions.' },
           { id: 'math-4', title: 'Straight Lines', description: 'Dive into coordinate geometry.' },
