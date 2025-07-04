@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { AuthProvider } from '@/context/AuthContext';
 import { AuthWrapper } from '@/components/AuthWrapper';
@@ -36,6 +37,7 @@ export default function RootLayout({
                   <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     {children}
                   </main>
+                  <Footer />
                   <Toaster />
               </AuthWrapper>
           </AuthProvider>
