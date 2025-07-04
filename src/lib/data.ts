@@ -35,7 +35,7 @@ export const courseData: Course[] = [
   {
     id: 'samarth-nimcet-2026',
     title: 'SAMARTH NIMCET 2026: MCA',
-    imageUrl: 'https://placehold.co/710x374.png',
+    imageUrl: 'https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/f3ec6f42-3a82-4d71-9443-2e74e13735a7.png',
     imageHint: 'course banner',
     category: 'NIMCET',
     price: 6499,
@@ -62,7 +62,7 @@ export const courseData: Course[] = [
           { id: 'math-15', title: 'Differential Equations', description: 'Solving differential equations.' },
           { id: 'math-16', title: 'Vector', description: 'Understanding vectors and vector algebra.' },
           { id: 'math-17', title: 'Probability', description: 'Learn the concepts of probability.' },
-          { id: 'math-18', title: 'Quadratic Equations', description: 'Solving quadratic equations.' },
+          { id: 'math-18', 'title': 'Quadratic Equations', description: 'Solving quadratic equations.' },
           { id: 'math-19', title: 'Permutations and Combinations', description: 'Counting principles and techniques.' },
           { id: 'math-20', title: 'Trigonometric Ratio & Identities', description: 'Exploring trigonometry.' },
           { id: 'math-21', title: 'Inequality', description: 'Solving inequalities.' },
