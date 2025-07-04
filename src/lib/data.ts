@@ -173,26 +173,23 @@ export const courseData: Course[] = [
     originalPrice: 7999,
     subjects: [
       {
-        id: 'module-1',
-        name: 'Module 1: Introduction',
+        id: 'course-videos',
+        name: 'Course Videos',
         videos: [
-          { id: 'yt-v1', title: 'Welcome to the Course', description: 'An overview of what you will learn.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_1' }] },
-          { id: 'yt-v2', title: 'Understanding Youtube Automation', description: 'The fundamentals of automating a channel.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_2' }] },
+          { id: 'yt-v1', title: 'Video-01', description: 'Course content video 1.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_1' }] },
+          { id: 'yt-v2', title: 'Video-02', description: 'Course content video 2.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_2' }] },
+          { id: 'yt-v3', title: 'Video-03', description: 'Course content video 3.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_3' }] },
+          { id: 'yt-v4', title: 'Video-04', description: 'Course content video 4.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_4' }] },
+          { id: 'yt-v5', title: 'Video-05', description: 'Course content video 5.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_5' }] },
+          { id: 'yt-v6', title: 'Video-06', description: 'Course content video 6.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_6' }] },
+          { id: 'yt-v7', title: 'Video-07', description: 'Course content video 7.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_7' }] },
+          { id: 'yt-v8', title: 'Video-08', description: 'Course content video 8.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_8' }] },
+          { id: 'yt-v9', title: 'Video-09', description: 'Course content video 9.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_9' }] },
         ],
         dpps: [],
         notes: [],
         solutions: [],
-      },
-       {
-        id: 'module-2',
-        name: 'Module 2: Content Strategy',
-        videos: [
-            { id: 'yt-v3', title: 'Finding Your Niche', description: 'How to choose a profitable niche.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_3' }] },
-        ],
-        dpps: [],
-        notes: [],
-        solutions: [],
-      },
+      }
     ],
   },
 ];
