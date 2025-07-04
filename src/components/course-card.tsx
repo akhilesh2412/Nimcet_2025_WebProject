@@ -26,26 +26,27 @@ export function CourseCard({ course }: CourseCardProps) {
   };
 
   return (
-    <Card className="w-full overflow-hidden bg-card border-border rounded-lg shadow-lg">
+    <Card className="group w-full overflow-hidden bg-card border-border rounded-lg shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1">
       <CardHeader className="pt-4 pb-2 px-4">
-        <CardTitle className="text-foreground text-base font-bold truncate">{course.title}</CardTitle>
+        <CardTitle className="text-foreground text-base font-bold truncate transition-colors duration-300 group-hover:text-primary">{course.title}</CardTitle>
       </CardHeader>
       <CardContent className="p-0 relative">
-        <div className="relative aspect-[16/9] w-full">
+        <div className="relative aspect-[16/9] w-full overflow-hidden">
           <Image
             src={course.imageUrl}
             alt={course.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
             data-ai-hint={course.imageHint}
           />
-          <Badge variant="secondary" className="absolute top-3 left-3 bg-yellow-400 text-black border-none hover:bg-yellow-500 text-[10px] sm:text-xs px-2 sm:px-2.5">
+           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <Badge variant="secondary" className="absolute top-3 left-3 text-[10px] sm:text-xs px-2 sm:px-2.5">
             {course.category}
           </Badge>
-          <div className="absolute top-3 right-3 bg-yellow-400 text-black text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
+          <div className="absolute top-3 right-3 bg-secondary text-secondary-foreground text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
             {course.originalPrice && (
-              <span className="line-through text-black/70 mr-1.5">₹{course.originalPrice}/-</span>
+              <span className="line-through opacity-70 mr-1.5">₹{course.originalPrice}/-</span>
             )}
             <span>₹{course.price}/-</span>
           </div>
@@ -58,7 +59,7 @@ export function CourseCard({ course }: CourseCardProps) {
                     onClick={handleFavoriteClick}
                     aria-label={isCourseFavorite ? 'Remove from favorites' : 'Add to favorites'}
                 >
-                    <Star className={cn("h-5 w-5", isCourseFavorite ? "fill-yellow-400 text-yellow-400" : "text-white")} />
+                    <Star className={cn("h-5 w-5 transition-colors", isCourseFavorite ? "fill-primary text-primary" : "text-white")} />
                 </Button>
             ) : (
                 <Skeleton className="h-9 w-9 rounded-full" />
