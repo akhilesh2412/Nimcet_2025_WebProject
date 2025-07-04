@@ -19,6 +19,9 @@ export function PdfViewer({ url, title, onClose }: PdfViewerProps) {
     e.preventDefault();
   };
 
+  // Use a proxy to bypass download headers
+  const proxiedUrl = `/api/pdf-proxy?url=${encodeURIComponent(url)}`;
+
   return (
     <Dialog open={!!url} onOpenChange={(isOpen) => !isOpen && onClose()}>
       <DialogContent 
@@ -36,7 +39,7 @@ export function PdfViewer({ url, title, onClose }: PdfViewerProps) {
         </DialogHeader>
         <div className="flex-grow w-full h-full overflow-hidden" onContextMenu={handleInteraction}>
           <iframe
-            src={`${url}#toolbar=0&navpanes=0&scrollbar=0`}
+            src={`${proxiedUrl}#toolbar=0`}
             className="w-full h-full border-none"
             title={title}
           />
