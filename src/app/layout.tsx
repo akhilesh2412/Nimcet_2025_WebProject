@@ -8,7 +8,7 @@ import { AuthWrapper } from '@/components/AuthWrapper';
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'Next Toppers',
+  title: 'NIMCET 2026',
   description: 'Your guide to mastering new skills.',
 };
 

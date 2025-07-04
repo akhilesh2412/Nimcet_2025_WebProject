@@ -39,7 +39,7 @@ export function Header() {
             <div className="p-4 border-b">
                <SheetClose asChild>
                  <Link href="/" className="text-lg font-bold">
-                    Next Toppers
+                    NIMCET 2026
                   </Link>
                </SheetClose>
             </div>
@@ -89,7 +89,7 @@ export function Header() {
                 href="/"
                 className="text-2xl font-bold font-headline text-foreground transition-opacity hover:opacity-80"
               >
-                Next Toppers
+                NIMCET 2026
               </Link>
           </div>
           

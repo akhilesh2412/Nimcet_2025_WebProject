@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold font-headline text-foreground">Next Toppers</h3>
+            <h3 className="text-2xl font-bold font-headline text-foreground">NIMCET 2026</h3>
             <p className="text-muted-foreground text-sm max-w-xs">
               Your guide to mastering new skills and acing your exams with top-quality resources.
             </p>
@@ -46,7 +46,7 @@ export function Footer() {
         </div>
         
         <div className="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Next Toppers. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} NIMCET 2026. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

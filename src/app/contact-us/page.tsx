@@ -17,8 +17,8 @@ export default function ContactUsPage() {
         <CardContent className="pt-0 space-y-4">
           <div className="flex items-center gap-4">
             <Mail className="h-5 w-5 text-muted-foreground" />
-            <a href="mailto:support@coursecompass.com" className="hover:underline">
-              support@coursecompass.com
+            <a href="mailto:support@nimcet2026.com" className="hover:underline">
+              support@nimcet2026.com
             </a>
           </div>
           <div className="flex items-center gap-4">
