@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
 import { LoadingScreen } from '@/components/LoadingScreen';
 
-const PIN = '1234'; // Hardcoded PIN
+const PIN = '2412'; // Hardcoded PIN
 const SESSION_DURATION = 48 * 60 * 60 * 1000; // 48 hours in milliseconds
 const STORAGE_KEY = 'sessionExpiresAt';
 
