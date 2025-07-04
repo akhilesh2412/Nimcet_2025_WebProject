@@ -1,18 +1,29 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize, Minimize, X } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Maximize, Minimize, X, Settings } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import type { VideoSource } from '@/lib/data';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 interface VideoPlayerProps {
-  src: string;
+  sources: VideoSource[];
   title: string;
   onEnd: () => void;
 }
 
-export function VideoPlayer({ src, title, onEnd }: VideoPlayerProps) {
+export function VideoPlayer({ sources, title, onEnd }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -24,6 +35,8 @@ export function VideoPlayer({ src, title, onEnd }: VideoPlayerProps) {
   const [duration, setDuration] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showControls, setShowControls] = useState(true);
+  const [playbackRate, setPlaybackRate] = useState(1);
+  const [currentSource, setCurrentSource] = useState(sources[0]);
 
   const hideControls = useCallback(() => {
     if (videoRef.current?.paused) return;
@@ -71,7 +84,14 @@ export function VideoPlayer({ src, title, onEnd }: VideoPlayerProps) {
         clearTimeout(controlsTimeoutRef.current);
       }
     };
-  }, [src, onEnd, handleMouseMove]);
+  }, [onEnd, handleMouseMove]);
+  
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = playbackRate;
+    }
+  }, [playbackRate]);
+
 
   const togglePlay = useCallback(() => {
     if (videoRef.current) {
@@ -124,6 +144,32 @@ export function VideoPlayer({ src, title, onEnd }: VideoPlayerProps) {
       document.exitFullscreen();
     }
   }, []);
+  
+  const handleQualityChange = (quality: string) => {
+    const newSource = sources.find(s => s.quality === quality);
+    if (newSource && videoRef.current && newSource.url !== currentSource.url) {
+      const video = videoRef.current;
+      const currentTime = video.currentTime;
+      const isPaused = video.paused;
+      
+      video.src = newSource.url;
+      video.load();
+
+      const onLoadedData = () => {
+        video.currentTime = currentTime;
+        video.playbackRate = playbackRate;
+        if (!isPaused) {
+          video.play();
+        }
+        setCurrentSource(newSource);
+      };
+
+      video.addEventListener('loadeddata', onLoadedData, { once: true });
+    } else if (newSource) {
+      setCurrentSource(newSource);
+    }
+  };
+
 
   const formatTime = (time: number) => {
     if (isNaN(time)) return '00:00';
@@ -141,7 +187,7 @@ export function VideoPlayer({ src, title, onEnd }: VideoPlayerProps) {
     >
       <video
         ref={videoRef}
-        src={src}
+        src={currentSource.url}
         className="w-full h-full"
         onClick={togglePlay}
         onDoubleClick={toggleFullscreen}
@@ -182,6 +228,37 @@ export function VideoPlayer({ src, title, onEnd }: VideoPlayerProps) {
               <Slider value={[isMuted ? 0 : volume]} onValueChange={handleVolumeChange} max={1} step={0.05} />
             </div>
             <div className="flex-grow"/>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="hover:bg-white/20 hover:text-white">
+                  <Settings />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" side="top" className="bg-black/70 border-white/20 text-white">
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger>Playback speed</DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent>
+                    <DropdownMenuRadioGroup value={String(playbackRate)} onValueChange={(value) => setPlaybackRate(Number(value))}>
+                      {[0.5, 0.75, 1, 1.25, 1.5, 2].map(rate => (
+                        <DropdownMenuRadioItem key={rate} value={String(rate)}>{rate === 1 ? 'Normal' : `${rate}x`}</DropdownMenuRadioItem>
+                      ))}
+                    </DropdownMenuRadioGroup>
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+                {sources.length > 1 && (
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger>Quality</DropdownMenuSubTrigger>
+                    <DropdownMenuSubContent>
+                      <DropdownMenuRadioGroup value={currentSource.quality} onValueChange={handleQualityChange}>
+                        {sources.map(source => (
+                          <DropdownMenuRadioItem key={source.quality} value={source.quality}>{source.quality}</DropdownMenuRadioItem>
+                        ))}
+                      </DropdownMenuRadioGroup>
+                    </DropdownMenuSubContent>
+                  </DropdownMenuSub>
+                )}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Button variant="ghost" size="icon" onClick={toggleFullscreen} className="hover:bg-white/20 hover:text-white">
               {isFullscreen ? <Minimize /> : <Maximize />}
             </Button>

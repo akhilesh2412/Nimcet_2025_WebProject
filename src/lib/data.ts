@@ -1,8 +1,14 @@
+export interface VideoSource {
+  quality: string;
+  url: string;
+}
+
 export interface Content {
   id: string;
   title: string;
   description: string;
   url?: string;
+  sources?: VideoSource[];
 }
 
 export interface Subject {
@@ -33,8 +39,8 @@ export const courseData: Course[] = [
         id: 'html-css',
         name: 'HTML & CSS',
         videos: [
-          { id: 'v1', title: 'Introduction to HTML5', description: 'Learn the basic structure of a web page.', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' },
-          { id: 'v2', title: 'Advanced CSS Selectors', description: 'Master the art of selecting elements.', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' },
+          { id: 'v1', title: 'Introduction to HTML5', description: 'Learn the basic structure of a web page.', sources: [{ quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' }, { quality: '480p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' }] },
+          { id: 'v2', title: 'Advanced CSS Selectors', description: 'Master the art of selecting elements.', sources: [{ quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' }, { quality: '480p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' }] },
         ],
         dpps: [
           { id: 'd1', title: 'DPP 01: HTML Forms', description: 'Practice building complex forms.' },
@@ -50,8 +56,8 @@ export const courseData: Course[] = [
         id: 'javascript',
         name: 'JavaScript Deep Dive',
         videos: [
-            { id: 'v1', title: 'ES6+ Features', description: 'Explore modern JavaScript features like arrow functions, promises, and async/await.', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' },
-            { id: 'v2', title: 'DOM Manipulation', description: 'Learn how to interact with the Document Object Model to create dynamic web pages.', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4' },
+            { id: 'v1', title: 'ES6+ Features', description: 'Explore modern JavaScript features like arrow functions, promises, and async/await.', sources: [{ quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' }, { quality: '480p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' }] },
+            { id: 'v2', title: 'DOM Manipulation', description: 'Learn how to interact with the Document Object Model to create dynamic web pages.', sources: [{ quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4' }, { quality: '480p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4' }] },
         ],
         dpps: [
             { id: 'd1', title: 'DPP 01: JavaScript Functions', description: 'Practice writing and using functions.' },
@@ -67,8 +73,8 @@ export const courseData: Course[] = [
         id: 'react',
         name: 'React for Beginners',
         videos: [
-            { id: 'v1', title: 'Introduction to React', description: 'Learn the basics of React and JSX.', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4' },
-            { id: 'v2', title: 'State and Props', description: 'Understand how data flows in a React application.', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4' },
+            { id: 'v1', title: 'Introduction to React', description: 'Learn the basics of React and JSX.', sources: [{ quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4' }, { quality: '480p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4' }] },
+            { id: 'v2', title: 'State and Props', description: 'Understand how data flows in a React application.', sources: [{ quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4' }, { quality: '480p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4' }] },
         ],
         dpps: [
             { id: 'd1', title: 'DPP 01: Building Components', description: 'Practice creating functional and class components.' },
@@ -92,7 +98,7 @@ export const courseData: Course[] = [
         id: 'python',
         name: 'Python for Data Science',
         videos: [
-            { id: 'v1', title: 'Introduction to Python', description: 'Learn the fundamentals of Python programming.', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4' },
+            { id: 'v1', title: 'Introduction to Python', description: 'Learn the fundamentals of Python programming.', sources: [{ quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4' }, { quality: '480p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4' }] },
         ],
         dpps: [],
         notes: [],
