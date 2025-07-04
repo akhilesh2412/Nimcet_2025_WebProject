@@ -33,6 +33,72 @@ export interface Course {
 
 export const courseData: Course[] = [
   {
+    id: 'samarth-nimcet-2026',
+    title: 'SAMARTH NIMCET 2026: MCA',
+    imageUrl: 'https://placehold.co/600x338.png',
+    imageHint: 'programming code',
+    category: 'NIMCET',
+    price: 5000,
+    originalPrice: 6500,
+    subjects: [
+      {
+        id: 'maths',
+        name: 'Maths',
+        videos: [
+          { id: 'math-1', title: 'Set Theory', description: 'Explore the fundamentals of sets.' },
+          { id: 'math-2', title: 'Relations and Functions', description: 'Understand relationships between sets.' },
+          { id: 'math-3', title: 'Sequence and Series', description: 'Learn about arithmetic and geometric progressions.' },
+          { id: 'math-4', title: 'Straight Lines', description: 'Dive into coordinate geometry.' },
+          { id: 'math-5', title: 'Circle', description: 'Properties and equations of circles.' },
+          { id: 'math-6', title: 'Parabola', description: 'Conic sections: the parabola.' },
+          { id: 'math-7', title: 'Ellipse', description: 'Conic sections: the ellipse.' },
+          { id: 'math-8', title: 'Hyperbola', description: 'Conic sections: the hyperbola.' },
+          { id: 'math-9', title: 'Matrices', description: 'Learn about matrices and their operations.' },
+          { id: 'math-10', title: 'Determinants', description: 'Calculate determinants and their properties.' },
+          { id: 'math-11', title: 'Continuity and Differentiability', description: 'Introduction to calculus concepts.' },
+          { id: 'math-12', title: 'Application of Derivatives', description: 'Using derivatives to solve problems.' },
+          { id: 'math-13', title: 'Integrals', description: 'Master the art of integration.' },
+          { id: 'math-14', title: 'Application of Integration', description: 'Applying integrals to find areas.' },
+          { id: 'math-15', title: 'Differential Equations', description: 'Solving differential equations.' },
+          { id: 'math-16', title: 'Vector', description: 'Understanding vectors and vector algebra.' },
+          { id: 'math-17', title: 'Probability', description: 'Learn the concepts of probability.' },
+          { id: 'math-18', title: 'Quadratic Equations', description: 'Solving quadratic equations.' },
+          { id: 'math-19', title: 'Permutations and Combinations', description: 'Counting principles and techniques.' },
+          { id: 'math-20', title: 'Trigonometric Ratio & Identities', description: 'Exploring trigonometry.' },
+          { id: 'math-21', title: 'Inequality', description: 'Solving inequalities.' },
+          { id: 'math-22', title: 'Indices, Logarithms', description: 'Working with exponents and logs.' }
+        ],
+        dpps: [],
+        notes: [],
+        solutions: [],
+      },
+      {
+        id: 'computer',
+        name: 'Computer',
+        videos: [],
+        dpps: [],
+        notes: [],
+        solutions: [],
+      },
+      {
+        id: 'reasoning',
+        name: 'Reasoning',
+        videos: [],
+        dpps: [],
+        notes: [],
+        solutions: [],
+      },
+      {
+        id: 'english',
+        name: 'English',
+        videos: [],
+        dpps: [],
+        notes: [],
+        solutions: [],
+      }
+    ]
+  },
+  {
     id: 'aarambh-9th',
     title: 'AARAMBH 9th BATCH 25-26',
     imageUrl: 'https://placehold.co/600x338.png',
