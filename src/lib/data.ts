@@ -73,7 +73,7 @@ export const courseData: Course[] = [
           { id: 'math-15', title: 'Differential Equations', description: 'Solving differential equations.' },
           { id: 'math-16', title: 'Vector', description: 'Understanding vectors and vector algebra.' },
           { id: 'math-17', title: 'Probability', description: 'Learn the concepts of probability.' },
-          { id: 'math-18', 'title': 'Quadratic Equations', description: 'Solving quadratic equations.' },
+          { id: 'math-18', title: 'Quadratic Equations', description: 'Solving quadratic equations.' },
           { id: 'math-19', title: 'Permutations and Combinations', description: 'Counting principles and techniques.' },
           { id: 'math-20', title: 'Trigonometric Ratio & Identities', description: 'Exploring trigonometry.' },
           { id: 'math-21', title: 'Inequality', description: 'Solving inequalities.' },
