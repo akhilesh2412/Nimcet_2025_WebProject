@@ -110,63 +110,6 @@ export const courseData: Course[] = [
     ]
   },
   {
-    id: 'aarambh-9th',
-    title: 'AARAMBH 9th BATCH 25-26',
-    imageUrl: 'https://placehold.co/600x338.png',
-    imageHint: 'students smiling',
-    category: 'CLASS 9th',
-    price: 3000,
-    subjects: [
-      {
-        id: 'science',
-        name: 'Science',
-        videos: [
-          { id: 'v1', title: 'Introduction to Physics', description: 'Learn the basics of motion and forces.', sources: [{ type: 'direct', quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' }] },
-        ],
-        dpps: [],
-        notes: [],
-        solutions: [],
-      },
-       {
-        id: 'maths',
-        name: 'Maths',
-        videos: [],
-        dpps: [],
-        notes: [],
-        solutions: [],
-      },
-    ],
-  },
-  {
-    id: 'humanities-12th',
-    title: 'Humanities 12th',
-    imageUrl: 'https://placehold.co/600x338.png',
-    imageHint: 'students posing',
-    category: 'CLASS 12th',
-    price: 3500,
-    originalPrice: 4000,
-    subjects: [
-       {
-        id: 'history',
-        name: 'History',
-        videos: [
-            { id: 'v1', title: 'Modern History', description: 'A deep dive into modern history.', sources: [{ type: 'direct', quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' }] },
-        ],
-        dpps: [],
-        notes: [],
-        solutions: [],
-      },
-      {
-        id: 'political-science',
-        name: 'Political Science',
-        videos: [],
-        dpps: [],
-        notes: [],
-        solutions: [],
-      },
-    ],
-  },
-  {
     id: 'youtube-automation-experts',
     title: 'Youtube Automation & Video Experts',
     imageUrl: 'https://placehold.co/600x338.png',
