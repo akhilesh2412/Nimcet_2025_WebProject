@@ -141,7 +141,7 @@ export const courseData: Course[] = [
   {
     id: 'complete-video-editing',
     title: 'Complete Video Editing Course',
-    imageUrl: 'https://placehold.co/600x338.png',
+    imageUrl: 'https://dl.tamilupdates.workers.dev/dl/6867ccbde7c10aa8f973e5e3',
     imageHint: 'video editing software',
     category: 'Creative',
     price: 3999,
