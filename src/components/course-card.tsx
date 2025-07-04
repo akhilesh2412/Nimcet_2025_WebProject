@@ -67,8 +67,12 @@ export function CourseCard({ course }: CourseCardProps) {
         </div>
       </CardContent>
       <CardFooter className="p-2">
-        <Button asChild variant="secondary" className="w-full h-11 text-lg font-semibold">
-            <Link href={`/courses/${course.id}`}>Let's Study</Link>
+        <Button
+          asChild
+          variant="outline"
+          className="w-full h-11 text-lg font-semibold border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+        >
+          <Link href={`/courses/${course.id}`}>Let's Study</Link>
         </Button>
       </CardFooter>
     </Card>
