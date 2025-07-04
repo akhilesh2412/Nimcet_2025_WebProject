@@ -1,10 +1,15 @@
+'use client';
+
+import { useState } from 'react';
 import { practiceSheetsData } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { FileText } from 'lucide-react';
-import Link from 'next/link';
 import { Breadcrumbs } from '@/components/breadcrumbs';
+import { PdfViewer } from '@/components/pdf-viewer';
 
 export default function PracticeSheetsPage() {
+  const [viewingPdf, setViewingPdf] = useState<{ url: string; title: string } | null>(null);
+
   return (
     <>
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Practice Sheets' }]} />
@@ -16,7 +21,7 @@ export default function PracticeSheetsPage() {
       {practiceSheetsData.length > 0 ? (
         <div className="space-y-4">
           {practiceSheetsData.map(item => (
-            <Link href={item.url!} key={item.id} target="_blank" rel="noopener noreferrer" className="group block">
+            <div key={item.id} className="group block cursor-pointer" onClick={() => item.url && setViewingPdf({ url: item.url, title: item.title })}>
               <Card className="transition-all duration-300 ease-in-out hover:shadow-lg hover:border-primary">
                 <CardHeader className="pb-4">
                   <div className="flex justify-between items-start">
@@ -28,7 +33,7 @@ export default function PracticeSheetsPage() {
                   <p className="text-muted-foreground">{item.description}</p>
                 </CardContent>
               </Card>
-            </Link>
+            </div>
           ))}
         </div>
       ) : (
@@ -37,6 +42,14 @@ export default function PracticeSheetsPage() {
             <p>No practice sheets available yet. Please check back later.</p>
           </CardContent>
         </Card>
+      )}
+
+      {viewingPdf && (
+        <PdfViewer 
+          url={viewingPdf.url} 
+          title={viewingPdf.title} 
+          onClose={() => setViewingPdf(null)} 
+        />
       )}
     </>
   );
