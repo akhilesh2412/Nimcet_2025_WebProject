@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import './nprogress.css';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { AuthProvider } from '@/context/AuthContext';
 import { AuthWrapper } from '@/components/AuthWrapper';
 import { ThemeProvider } from '@/components/theme-provider';
+import { PageProgressBar } from '@/components/PageProgressBar';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'NIMCET 2026',
@@ -25,6 +28,9 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased flex flex-col h-full bg-background">
+        <Suspense fallback={null}>
+            <PageProgressBar />
+        </Suspense>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
