@@ -3,8 +3,8 @@ import { getCourseById } from '@/lib/data';
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { CourseContent } from '@/components/course-content';
 
-export default async function CoursePage({ params }: { params: { courseId: string } }) {
-  const course = getCourseById(params.courseId);
+export default async function CoursePage({ params: { courseId } }: { params: { courseId: string } }) {
+  const course = getCourseById(courseId);
 
   if (!course) {
     notFound();
