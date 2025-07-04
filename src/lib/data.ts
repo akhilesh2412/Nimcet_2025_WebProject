@@ -312,6 +312,31 @@ export const courseData: Course[] = [
         solutions: [],
       }
     ]
+  },
+  {
+    id: 'class-12-maths',
+    title: 'Class - 12th Maths',
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'maths textbook class 12',
+    category: 'Academics',
+    price: 3499,
+    originalPrice: 4999,
+    subjects: [
+      {
+        id: 'maths-12th',
+        name: 'Maths',
+        videos: [
+          { id: 'math-12-1', title: 'Relations and Functions', description: 'Complete Chapter', sources: [{ type: 'youtube', videoId: 'P6VVruQReys' }] },
+          { id: 'math-12-2', title: 'Inverse Trigonometric Functions', description: 'Complete Chapter', sources: [{ type: 'youtube', videoId: 'xXMXIZpT4kU' }] },
+          { id: 'math-12-3', title: 'Matrices', description: 'Complete Chapter', sources: [{ type: 'youtube', videoId: '13hNqG05E7U' }] },
+          { id: 'math-12-4', title: 'Determinants', description: 'Complete Chapter', sources: [{ type: 'youtube', videoId: 'uFJcW5wzKGY' }] },
+          { id: 'math-12-5', title: 'Continuity and Differentiability', description: 'Complete Chapter', sources: [{ type: 'youtube', videoId: 'QzBq1gJt_5Q' }] },
+        ],
+        dpps: [],
+        notes: [],
+        solutions: [],
+      }
+    ]
   }
 ];
 
