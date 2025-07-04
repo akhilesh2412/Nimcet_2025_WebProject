@@ -179,7 +179,27 @@ export const practiceSheetsData: Content[] = [
 
 export const mindMapsData: Content[] = [];
 
-export const shortNotesData: Content[] = [];
+export const shortNotesData: Content[] = [
+    { id: 'sn1', title: 'Binomial Theorem', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae8fe7c10aa8f973e5c7', description: 'Download the short notes for Binomial Theorem.' },
+    { id: 'sn2', title: 'Sets', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae93e7c10aa8f973e5cd', description: 'Download the short notes for Sets.' },
+    { id: 'sn3', title: 'Probability', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae8be7c10aa8f973e5c1', description: 'Download the short notes for Probability.' },
+    { id: 'sn4', title: 'Introduction to 3D', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae8ae7c10aa8f973e5bf', description: 'Download the short notes for Introduction to 3D.' },
+    { id: 'sn5', title: 'Circle', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae8de7c10aa8f973e5c5', description: 'Download the short notes for Circle.' },
+    { id: 'sn6', title: 'Complex Number - 2', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae8ce7c10aa8f973e5c3', description: 'Download the short notes for Complex Number - 2.' },
+    { id: 'sn7', title: 'Permutation and Combination', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae90e7c10aa8f973e5c9', description: 'Download the short notes for Permutation and Combination.' },
+    { id: 'sn8', title: 'Sequence and Series', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae8ee7c10aa8f973e5c6', description: 'Download the short notes for Sequence and Series.' },
+    { id: 'sn9', title: 'Functions', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae93e7c10aa8f973e5cc', description: 'Download the short notes for Functions.' },
+    { id: 'sn10', title: 'Trigonometric Equations', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae90e7c10aa8f973e5c8', description: 'Download the short notes for Trigonometric Equations.' },
+    { id: 'sn11', title: 'Solutions of a Triangle', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae8ae7c10aa8f973e5c0', description: 'Download the short notes for Solutions of a Triangle.' },
+    { id: 'sn12', title: 'Complex Number - 1', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae91e7c10aa8f973e5ca', description: 'Download the short notes for Complex Number - 1.' },
+    { id: 'sn13', title: 'Limits and Derivatives', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae8ce7c10aa8f973e5c4', description: 'Download the short notes for Limits and Derivatives.' },
+    { id: 'sn14', title: 'Straight Line', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae8be7c10aa8f973e5c2', description: 'Download the short notes for Straight Line.' },
+    { id: 'sn15', title: 'Quadratic Equation', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae92e7c10aa8f973e5cb', description: 'Download the short notes for Quadratic Equation.' },
+    { id: 'sn16', title: 'Basic Maths and Logarithms', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae89e7c10aa8f973e5be', description: 'Download the short notes for Basic Maths and Logarithms.' },
+    { id: 'sn17', title: 'Ellipse', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae89e7c10aa8f973e5bd', description: 'Download the short notes for Ellipse.' },
+    { id: 'sn18', title: 'Hyperbola', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae89e7c10aa8f973e5bc', description: 'Download the short notes for Hyperbola.' },
+    { id: 'sn19', title: 'Trigonometric Ratio and Identities', url: 'https://dl.tamilupdates.workers.dev/dl/6867ae88e7c10aa8f973e5bb', description: 'Download the short notes for Trigonometric Ratio and Identities.' },
+];
 
 export const getCourseById = (id: string) => courseData.find(course => course.id === id);
 
