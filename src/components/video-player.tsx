@@ -5,7 +5,7 @@ import { Play, Pause, Volume2, VolumeX, Maximize, Minimize, X, Settings } from '
 import { Slider } from '@/components/ui/slider';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import type { VideoSource } from '@/lib/data';
+import type { DirectVideoSource } from '@/lib/data';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,7 +18,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 interface VideoPlayerProps {
-  sources: VideoSource[];
+  sources: DirectVideoSource[];
   title: string;
   onEnd: () => void;
 }

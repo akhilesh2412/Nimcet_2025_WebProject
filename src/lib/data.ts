@@ -1,7 +1,15 @@
-export interface VideoSource {
+export type DirectVideoSource = {
+  type: 'direct';
   quality: string;
   url: string;
-}
+};
+
+export type GoogleDriveVideoSource = {
+  type: 'gdrive';
+  fileId: string;
+};
+
+export type VideoSource = DirectVideoSource | GoogleDriveVideoSource;
 
 export interface Content {
   id: string;
@@ -28,6 +36,7 @@ export interface Course {
   category: string;
   price: number;
   originalPrice?: number;
+  subjects: Subject[];
 }
 
 export const courseData: Course[] = [
@@ -109,7 +118,7 @@ export const courseData: Course[] = [
         id: 'science',
         name: 'Science',
         videos: [
-          { id: 'v1', title: 'Introduction to Physics', description: 'Learn the basics of motion and forces.', sources: [{ quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' }] },
+          { id: 'v1', title: 'Introduction to Physics', description: 'Learn the basics of motion and forces.', sources: [{ type: 'direct', quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' }] },
         ],
         dpps: [],
         notes: [],
@@ -138,7 +147,7 @@ export const courseData: Course[] = [
         id: 'history',
         name: 'History',
         videos: [
-            { id: 'v1', title: 'Modern History', description: 'A deep dive into modern history.', sources: [{ quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' }] },
+            { id: 'v1', title: 'Modern History', description: 'A deep dive into modern history.', sources: [{ type: 'direct', quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' }] },
         ],
         dpps: [],
         notes: [],
@@ -167,8 +176,8 @@ export const courseData: Course[] = [
         id: 'module-1',
         name: 'Module 1: Introduction',
         videos: [
-          { id: 'yt-v1', title: 'Welcome to the Course', description: 'An overview of what you will learn.', sources: [{ quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' }] },
-          { id: 'yt-v2', title: 'Understanding Youtube Automation', description: 'The fundamentals of automating a channel.', sources: [{ quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4' }] },
+          { id: 'yt-v1', title: 'Welcome to the Course', description: 'An overview of what you will learn.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_1' }] },
+          { id: 'yt-v2', title: 'Understanding Youtube Automation', description: 'The fundamentals of automating a channel.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_2' }] },
         ],
         dpps: [],
         notes: [],
@@ -178,7 +187,7 @@ export const courseData: Course[] = [
         id: 'module-2',
         name: 'Module 2: Content Strategy',
         videos: [
-            { id: 'yt-v3', title: 'Finding Your Niche', description: 'How to choose a profitable niche.', sources: [{ quality: '720p', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' }] },
+            { id: 'yt-v3', title: 'Finding Your Niche', description: 'How to choose a profitable niche.', sources: [{ type: 'gdrive', fileId: 'REPLACE_WITH_YOUR_FILE_ID_3' }] },
         ],
         dpps: [],
         notes: [],
