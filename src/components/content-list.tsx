@@ -7,9 +7,10 @@ interface ContentListProps {
     emptyMessage: string;
     onItemClick?: (item: Content) => void;
     isClickable?: (item: Content) => boolean;
+    showPlayIcon?: (item: Content) => boolean;
 }
 
-export function ContentList({ items, emptyMessage, onItemClick, isClickable }: ContentListProps) {
+export function ContentList({ items, emptyMessage, onItemClick, isClickable, showPlayIcon }: ContentListProps) {
     if (items.length === 0) {
         return (
             <div className="text-center py-16 bg-muted/50 rounded-lg">
@@ -23,6 +24,7 @@ export function ContentList({ items, emptyMessage, onItemClick, isClickable }: C
         <div className="space-y-4">
             {items.map(item => {
                 const clickable = isClickable ? isClickable(item) : false;
+                const displayPlayIcon = showPlayIcon ? showPlayIcon(item) : clickable;
                 return (
                     <div
                         key={item.id}
@@ -36,7 +38,7 @@ export function ContentList({ items, emptyMessage, onItemClick, isClickable }: C
                             <CardHeader>
                                 <div className="flex justify-between items-center">
                                     <CardTitle className="text-lg">{item.title}</CardTitle>
-                                    {clickable && <PlayCircle className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors" />}
+                                    {displayPlayIcon && <PlayCircle className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors" />}
                                 </div>
                             </CardHeader>
                             {item.description && (

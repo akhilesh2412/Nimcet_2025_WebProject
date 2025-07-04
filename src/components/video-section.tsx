@@ -5,13 +5,20 @@ import type { Content } from '@/lib/data';
 import { ContentList } from '@/components/content-list';
 import { VideoPlayer } from '@/components/video-player';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { useToast } from '@/hooks/use-toast';
 
 export function VideoSection({ videos }: { videos: Content[] }) {
     const [selectedVideo, setSelectedVideo] = useState<Content | null>(null);
+    const { toast } = useToast();
 
     const handleVideoSelect = (video: Content) => {
         if (video.sources && video.sources.length > 0) {
             setSelectedVideo(video);
+        } else {
+            toast({
+                title: 'Coming Soon',
+                description: 'The video for this chapter is not available yet.',
+            });
         }
     };
 
@@ -25,7 +32,8 @@ export function VideoSection({ videos }: { videos: Content[] }) {
                 items={videos} 
                 emptyMessage="No videos available yet." 
                 onItemClick={handleVideoSelect}
-                isClickable={(item) => !!item.sources && item.sources.length > 0}
+                isClickable={() => true}
+                showPlayIcon={(item) => !!item.sources && item.sources.length > 0}
             />
 
             <Dialog open={!!selectedVideo} onOpenChange={(open) => !open && handleClosePlayer()}>
