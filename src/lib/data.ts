@@ -188,6 +188,36 @@ export const courseData: Course[] = [
   },
 ];
 
+export const mindMapsData: Content[] = [
+  {
+    id: 'mm1',
+    title: 'Web Development Basics',
+    description: 'A mind map covering the fundamentals of HTML, CSS, and JavaScript.',
+    url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+  },
+  {
+    id: 'mm2',
+    title: 'React Core Concepts',
+    description: 'Explore the core concepts of React including components, state, and props.',
+    url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+  },
+];
+
+export const shortNotesData: Content[] = [
+  {
+    id: 'sn1',
+    title: 'CSS Flexbox Guide',
+    description: 'A quick reference guide for all CSS Flexbox properties.',
+    url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+  },
+  {
+    id: 'sn2',
+    title: 'JavaScript ES6 Features',
+    description: 'Short notes on important ES6 features like let, const, arrow functions, and promises.',
+    url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+  },
+];
+
 export const getCourseById = (id: string) => courseData.find(course => course.id === id);
 
 export const getSubjectByIds = (courseId: string, subjectId: string) => {
