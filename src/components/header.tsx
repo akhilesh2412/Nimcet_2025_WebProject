@@ -13,6 +13,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/context/AuthContext';
 import { SessionTimer } from './SessionTimer';
+import { ThemeToggle } from './theme-toggle';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -76,7 +77,11 @@ export function Header() {
                 </SheetClose>
               ))}
             </nav>
-             <div className="p-4 border-t">
+             <div className="p-4 border-t space-y-4">
+                <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">Switch Theme</span>
+                    <ThemeToggle />
+                </div>
                <a
                   href="https://t.me/"
                   target="_blank"
@@ -112,7 +117,7 @@ export function Header() {
                 <SessionTimer />
               </div>
             )}
-            <div className="hidden md:block">
+            <div className="hidden md:flex items-center gap-2">
                <a
                 href="https://t.me/"
                 target="_blank"
@@ -122,6 +127,7 @@ export function Header() {
                 <Send className="w-4 h-4" />
                 Join Telegram
               </a>
+              <ThemeToggle />
             </div>
             <MobileNav />
           </div>
