@@ -4,7 +4,7 @@ import { useState } from 'react';
 import type { Content } from '@/lib/data';
 import { ContentList } from '@/components/content-list';
 import { VideoPlayer } from '@/components/video-player';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
 export function VideoSection({ videos }: { videos: Content[] }) {
     const [selectedVideo, setSelectedVideo] = useState<Content | null>(null);
@@ -32,6 +32,7 @@ export function VideoSection({ videos }: { videos: Content[] }) {
                 <DialogContent className="max-w-4xl p-0 border-0 bg-transparent shadow-none">
                     {selectedVideo && (
                         <>
+                           <DialogTitle className="sr-only">{selectedVideo.title}</DialogTitle>
                            <VideoPlayer src={selectedVideo.url!} title={selectedVideo.title} onEnd={handleClosePlayer} />
                         </>
                     )}
