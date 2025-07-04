@@ -21,9 +21,10 @@ export function BackgroundAnimation() {
   }, []);
   
   const options: ISourceOptions = useMemo(() => {
-    const particleColor = currentTheme === 'dark' ? 'hsl(0 0% 98%)' : 'hsl(0 0% 3.9%)';
-    const linkColor = currentTheme === 'dark' ? 'hsl(0 0% 98%)' : 'hsl(0 0% 3.9%)';
-    const backgroundColor = currentTheme === 'dark' ? 'hsl(240 10% 3.9%)' : 'hsl(0 0% 96.1%)';
+    // We use hardcoded HSL values because the library doesn't parse CSS variables.
+    // These colors are derived from your tailwind theme (globals.css).
+    const particleColor = currentTheme === 'dark' ? 'hsl(231, 48%, 70%)' : 'hsl(231, 48%, 48%)';
+    const backgroundColor = currentTheme === 'dark' ? 'hsl(240, 10%, 3.9%)' : 'hsl(0, 0%, 96.1%)';
 
     return {
       background: {
@@ -41,9 +42,9 @@ export function BackgroundAnimation() {
         },
         modes: {
           grab: {
-            distance: 150,
+            distance: 180,
             links: {
-                opacity: 0.5,
+                opacity: 0.8,
             }
           },
         },
@@ -53,10 +54,10 @@ export function BackgroundAnimation() {
           value: particleColor,
         },
         links: {
-          color: linkColor,
+          color: particleColor,
           distance: 150,
           enable: true,
-          opacity: 0.25,
+          opacity: 0.2,
           width: 1,
         },
         move: {
@@ -66,24 +67,24 @@ export function BackgroundAnimation() {
             default: 'out',
           },
           random: true,
-          speed: 0.2,
+          speed: 0.3,
           straight: false,
         },
         number: {
           density: {
             enable: true,
-            area: 800,
+            area: 900,
           },
-          value: 60,
+          value: 80,
         },
         opacity: {
-          value: 0.25,
+          value: 0.4,
         },
         shape: {
           type: 'circle',
         },
         size: {
-          value: { min: 1, max: 3 },
+          value: { min: 1, max: 2 },
         },
       },
       detectRetina: true,
