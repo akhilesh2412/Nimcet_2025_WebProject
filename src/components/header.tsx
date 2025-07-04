@@ -78,18 +78,35 @@ export function Header() {
     <header className="bg-background border-b sticky top-0 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-3">
-             <MobileNav />
-             <Link
-                href="/"
-                className="text-2xl font-bold font-headline text-foreground transition-opacity hover:opacity-80"
-              >
-                NIMCET 2026
-              </Link>
+          <div className="flex items-center gap-6">
+            <MobileNav />
+            <Link
+              href="/"
+              className="text-2xl font-bold font-headline text-foreground transition-opacity hover:opacity-80"
+            >
+              NIMCET 2026
+            </Link>
+            <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+              {navItems.map((item) => (
+                <Link
+                  href={item.href}
+                  key={item.href}
+                  className={cn(
+                    "transition-colors hover:text-primary",
+                    pathname === item.href ? "text-primary" : "text-muted-foreground"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
           </div>
           
           <div className="flex items-center gap-4">
-            <SessionTimer />
+            <div className="hidden md:flex">
+                <SessionTimer />
+            </div>
+            <ThemeToggle />
           </div>
         </div>
       </div>
