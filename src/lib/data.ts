@@ -112,7 +112,7 @@ export const courseData: Course[] = [
   {
     id: 'youtube-automation-experts',
     title: 'Youtube Automation & Video Experts',
-    imageUrl: 'https://placehold.co/600x338.png',
+    imageUrl: 'https://dl.tamilupdates.workers.dev/dl/6867ce87e7c10aa8f973e5e4',
     imageHint: 'youtube logo automation',
     category: 'BUSINESS',
     price: 4999,
