@@ -40,6 +40,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cache.careers360.mobi',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };

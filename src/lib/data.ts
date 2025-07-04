@@ -316,8 +316,8 @@ export const courseData: Course[] = [
   {
     id: 'class-12-maths',
     title: 'Class - 12th Maths',
-    imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'maths textbook class 12',
+    imageUrl: 'https://cache.careers360.mobi/media/article_images/2024/2/7/New_Project_13.jpg',
+    imageHint: 'maths textbook',
     category: 'Academics',
     price: 3499,
     originalPrice: 4999,
@@ -412,3 +412,4 @@ export const getSubjectByIds = (courseId: string, subjectId: string) => {
     const course = getCourseById(courseId);
     return course?.subjects.find(subject => subject.id === subjectId);
 }
+
