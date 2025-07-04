@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import type { Content, DirectVideoSource, GoogleDriveVideoSource } from '@/lib/data';
+import type { Content, DirectVideoSource, GoogleDriveVideoSource, YoutubeVideoSource } from '@/lib/data';
 import { VideoPlayer } from '@/components/video-player';
 import { GoogleDrivePlayer } from '@/components/google-drive-player';
+import { YoutubePlayer } from '@/components/youtube-player';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
@@ -36,6 +37,7 @@ const groupingRules: Record<string, (video: Content) => boolean> = {
 export function VideoSection({ videos }: { videos: Content[] }) {
     const [selectedDirectVideo, setSelectedDirectVideo] = useState<Content | null>(null);
     const [selectedGdriveVideo, setSelectedGdriveVideo] = useState<Content | null>(null);
+    const [selectedYoutubeVideo, setSelectedYoutubeVideo] = useState<Content | null>(null);
     const { toast } = useToast();
 
     const processedVideos = useMemo(() => {
@@ -88,8 +90,10 @@ export function VideoSection({ videos }: { videos: Content[] }) {
             const source = video.sources[0];
             if (source.type === 'gdrive') {
                 setSelectedGdriveVideo(video);
-            } else {
+            } else if (source.type === 'direct') {
                 setSelectedDirectVideo(video);
+            } else if (source.type === 'youtube') {
+                setSelectedYoutubeVideo(video);
             }
         } else {
             toast({
@@ -102,10 +106,12 @@ export function VideoSection({ videos }: { videos: Content[] }) {
     const handleClosePlayer = () => {
         setSelectedDirectVideo(null);
         setSelectedGdriveVideo(null);
+        setSelectedYoutubeVideo(null);
     };
 
     const directSources = selectedDirectVideo?.sources?.filter(s => s.type === 'direct') as DirectVideoSource[] | undefined;
     const gdriveSource = selectedGdriveVideo?.sources?.find(s => s.type === 'gdrive') as GoogleDriveVideoSource | undefined;
+    const youtubeSource = selectedYoutubeVideo?.sources?.find(s => s.type === 'youtube') as YoutubeVideoSource | undefined;
 
     if (videos.length === 0) {
         return (
@@ -193,6 +199,25 @@ export function VideoSection({ videos }: { videos: Content[] }) {
                                 </DialogClose>
                             </DialogHeader>
                            <GoogleDrivePlayer fileId={gdriveSource.fileId} title={selectedGdriveVideo.title} />
+                        </>
+                    )}
+                </DialogContent>
+            </Dialog>
+            
+            <Dialog open={!!selectedYoutubeVideo} onOpenChange={(open) => !open && handleClosePlayer()}>
+                <DialogContent className="max-w-4xl p-0 border-0 bg-black flex flex-col">
+                    {selectedYoutubeVideo && youtubeSource && (
+                        <>
+                            <DialogHeader className="flex-shrink-0 flex flex-row items-center justify-between p-2 sm:p-4 border-b bg-card">
+                                <DialogTitle className="text-lg font-semibold truncate">{selectedYoutubeVideo.title}</DialogTitle>
+                                <DialogClose asChild>
+                                    <Button variant="ghost" size="icon">
+                                        <X className="h-6 w-6" />
+                                        <span className="sr-only">Close Player</span>
+                                    </Button>
+                                </DialogClose>
+                            </DialogHeader>
+                           <YoutubePlayer videoId={youtubeSource.videoId} title={selectedYoutubeVideo.title} />
                         </>
                     )}
                 </DialogContent>

@@ -10,7 +10,12 @@ export type GoogleDriveVideoSource = {
   fileId: string;
 };
 
-export type VideoSource = DirectVideoSource | GoogleDriveVideoSource;
+export type YoutubeVideoSource = {
+  type: 'youtube';
+  videoId: string;
+};
+
+export type VideoSource = DirectVideoSource | GoogleDriveVideoSource | YoutubeVideoSource;
 
 export interface Content {
   id: string;
@@ -287,7 +292,14 @@ export const courseData: Course[] = [
       {
         id: 'maths-11th',
         name: 'Maths',
-        videos: [],
+        videos: [
+          { id: 'math-11-1', title: 'Sets', description: 'Complete Chapter', sources: [{ type: 'youtube', videoId: 'F_7WUK7htRg' }] },
+          { id: 'math-11-2', title: 'Relations and Functions', description: 'Complete Chapter', sources: [{ type: 'youtube', videoId: '4VXUlNRlT3c' }] },
+          { id: 'math-11-3', title: 'Trigonometric Functions', description: 'Complete Chapter', sources: [{ type: 'youtube', videoId: 'kcSMOgFRp6w' }] },
+          { id: 'math-11-4', title: 'Complex Number & Quadratic Equation', description: 'Complete Chapter', sources: [{ type: 'youtube', videoId: '7tu6_GH5qAw' }] },
+          { id: 'math-11-5', title: 'Linear Inequalities', description: 'Complete Chapter', sources: [{ type: 'youtube', videoId: 'Kdcd7m0jme0' }] },
+          { id: 'math-11-6', title: 'Permutations and Combinations', description: 'Complete Chapter', sources: [{ type: 'youtube', videoId: 'Y1X_zLptX_E' }] },
+        ],
         dpps: [],
         notes: [],
         solutions: [],
