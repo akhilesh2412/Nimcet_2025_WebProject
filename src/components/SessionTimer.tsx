@@ -1,43 +1,38 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useAuth } from '@/context/AuthContext';
-import { Timer } from 'lucide-react';
+import { CalendarClock } from 'lucide-react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export function SessionTimer() {
-  const { expiresAt, logout } = useAuth();
-  const [timeLeft, setTimeLeft] = useState('');
+  const [daysLeft, setDaysLeft] = useState<number | null>(null);
 
   useEffect(() => {
-    if (!expiresAt) return;
+    const targetDate = new Date('2026-01-01T00:00:00Z');
+    
+    const calculateDays = () => {
+        const today = new Date();
+        const diffTime = targetDate.getTime() - today.getTime();
+        
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        
+        setDaysLeft(diffDays > 0 ? diffDays : 0);
+    };
+    
+    calculateDays();
 
-    const intervalId = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = expiresAt - now;
+    const interval = setInterval(calculateDays, 1000 * 60 * 60);
+    return () => clearInterval(interval);
+  }, []);
 
-      if (distance < 0) {
-        clearInterval(intervalId);
-        setTimeLeft('Expired');
-        logout();
-        return;
-      }
-
-      const hours = Math.floor(distance / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      setTimeLeft(`${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`);
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, [expiresAt, logout]);
-
-  if (!timeLeft) return null;
-
+  if (daysLeft === null) {
+    return <Skeleton className="h-9 w-32 rounded-md" />;
+  }
+  
   return (
-    <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted px-3 py-1.5 rounded-md">
-      <Timer className="h-4 w-4" />
-      <span>Session ends in: {timeLeft}</span>
+    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-primary-foreground bg-primary/90 px-3 py-2 rounded-md h-9">
+      <CalendarClock className="h-4 w-4" />
+      <span>{daysLeft} days to go</span>
     </div>
   );
 }
