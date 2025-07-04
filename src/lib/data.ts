@@ -275,6 +275,25 @@ export const courseData: Course[] = [
       }
     ]
   },
+  {
+    id: 'class-11-maths',
+    title: 'Class - 11th Maths',
+    imageUrl: 'https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS_BLOGS/2fc1d0c5-e278-443e-8ed9-58cb217f8e62.jpg',
+    imageHint: 'maths textbook class 11',
+    category: 'Academics',
+    price: 3499,
+    originalPrice: 4999,
+    subjects: [
+      {
+        id: 'maths-11th',
+        name: 'Maths',
+        videos: [],
+        dpps: [],
+        notes: [],
+        solutions: [],
+      }
+    ]
+  }
 ];
 
 export const practiceSheetsData: Content[] = [
