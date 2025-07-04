@@ -35,11 +35,11 @@ export const courseData: Course[] = [
   {
     id: 'samarth-nimcet-2026',
     title: 'SAMARTH NIMCET 2026: MCA',
-    imageUrl: 'https://placehold.co/600x338.png',
-    imageHint: 'programming code',
+    imageUrl: 'https://placehold.co/710x374.png',
+    imageHint: 'course banner',
     category: 'NIMCET',
-    price: 5000,
-    originalPrice: 6500,
+    price: 6499,
+    originalPrice: 9000,
     subjects: [
       {
         id: 'maths',
