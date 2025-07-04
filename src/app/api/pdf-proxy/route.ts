@@ -5,13 +5,19 @@ export const dynamic = 'force-dynamic'
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const pdfUrl = searchParams.get('url');
+  const encodedUrl = searchParams.get('url');
 
-  if (!pdfUrl) {
+  if (!encodedUrl) {
     return new NextResponse('Missing PDF URL', { status: 400 });
   }
 
   try {
+    const pdfUrl = Buffer.from(encodedUrl, 'base64').toString('utf-8');
+    
+    if (!pdfUrl.startsWith('http')) {
+      return new NextResponse('Invalid URL', { status: 400 });
+    }
+
     const response = await fetch(pdfUrl);
 
     if (!response.ok) {
@@ -31,7 +37,7 @@ export async function GET(request: NextRequest) {
       headers: headers,
     });
   } catch (error) {
-    console.error(`Error proxying PDF from ${pdfUrl}:`, error);
+    console.error(`Error proxying PDF from ${encodedUrl}:`, error);
     return new NextResponse('Internal Server Error while proxying PDF', { status: 500 });
   }
 }

@@ -19,8 +19,10 @@ export function PdfViewer({ url, title, onClose }: PdfViewerProps) {
     e.preventDefault();
   };
 
+  // Base64 encode the URL to obscure it from browser content blockers.
+  const encodedUrl = btoa(url);
   // Use a proxy to bypass download headers
-  const proxiedUrl = `/api/pdf-proxy?url=${encodeURIComponent(url)}`;
+  const proxiedUrl = `/api/pdf-proxy?url=${encodedUrl}`;
 
   return (
     <Dialog open={!!url} onOpenChange={(isOpen) => !isOpen && onClose()}>
