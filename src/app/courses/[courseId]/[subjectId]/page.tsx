@@ -1,37 +1,10 @@
 import { notFound } from 'next/navigation';
-import { getCourseById, getSubjectByIds, type Content } from '@/lib/data';
+import { getCourseById, getSubjectByIds } from '@/lib/data';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { Video, FileText, Notebook, GraduationCap, CircleHelp } from 'lucide-react';
-
-function ContentList({ items, emptyMessage }: { items: Content[], emptyMessage: string }) {
-    if (items.length === 0) {
-        return (
-            <div className="text-center py-16 bg-muted/50 rounded-lg">
-                <CircleHelp className="mx-auto h-12 w-12 text-muted-foreground" />
-                <p className="mt-4 text-muted-foreground">{emptyMessage}</p>
-            </div>
-        );
-    }
-
-    return (
-        <div className="space-y-4">
-            {items.map(item => (
-                <Card key={item.id} className="transition-shadow hover:shadow-md">
-                    <CardHeader>
-                        <CardTitle className="text-lg">{item.title}</CardTitle>
-                    </CardHeader>
-                    {item.description && (
-                         <CardContent>
-                            <p className="text-muted-foreground">{item.description}</p>
-                        </CardContent>
-                    )}
-                </Card>
-            ))}
-        </div>
-    );
-}
+import { Video, FileText, Notebook, GraduationCap } from 'lucide-react';
+import { ContentList } from '@/components/content-list';
+import { VideoSection } from '@/components/video-section';
 
 export default function SubjectPage({ params }: { params: { courseId: string, subjectId: string } }) {
   const course = getCourseById(params.courseId);
@@ -69,7 +42,7 @@ export default function SubjectPage({ params }: { params: { courseId: string, su
           </TabsTrigger>
         </TabsList>
         <TabsContent value="videos" className="mt-6">
-          <ContentList items={subject.videos} emptyMessage="No videos available yet." />
+          <VideoSection videos={subject.videos} />
         </TabsContent>
         <TabsContent value="dpp" className="mt-6">
           <ContentList items={subject.dpps} emptyMessage="No Daily Practice Problems available yet." />
