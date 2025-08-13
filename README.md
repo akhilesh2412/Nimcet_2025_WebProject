@@ -4,7 +4,7 @@ sidebar: auto
 
 <p align="center">
   <a href="https://nimcet-five.vercel.app" target="_blank">
-    <img src="https://via.placeholder.com/800x200?text=Nimcet+2025+Web+Project+Banner" alt="NIMCET 2025 Web Project" />
+    <img src="https://i.postimg.cc/xTD53D8Q/20250813-102906.png" alt="NIMCET 2025 Web Project" />
   </a>
 </p>
 
