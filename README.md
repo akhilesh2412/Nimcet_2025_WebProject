@@ -82,7 +82,8 @@ Check out the project live here:
 
 | Desktop View                          | Mobile View                        |
 |---------------------------------------|-------------------------------------|
-| ![Desktop Screenshot](https://via.placeholder.com/400x250?text=Desktop+View) | ![Mobile Screenshot](https://via.placeholder.com/300x500?text=Mobile+View) |
+| ![Desktop Screenshot](https://i.postimg.cc/htwfVg4b/Screenshot-2025-08-13-103720.png)
+(https://i.postimg.cc/KjJYjhsT/Screenshot-2025-08-13-103756.png)| ![Mobile Screenshot](https://i.postimg.cc/3R37vbGF/Screenshot-2025-08-13-103959.png) |
 
 *(Replace these placeholders with actual screenshots for better visual appeal.)*
 
