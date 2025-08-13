@@ -73,7 +73,8 @@ The **NIMCET 2025 Web Project** is a sleek, modern web application built using *
 ##  Live Preview
 
 Check out the project live here:  
-➡ [nimcet-five.vercel.app](https://nimcet-five.vercel.app)
+➡ [nimcet-five.vercel.app](https://nimcet-2026.vercel.app/) 
+➡ Password:- 2412
 
 ---
 
