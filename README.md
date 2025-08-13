@@ -1,8 +1,3 @@
-
----
-sidebar: auto
----
-
 <p align="center">
   <a href="https://nimcet-five.vercel.app" target="_blank">
     <img src="https://i.postimg.cc/Dy4V8KDK/20250813-104253.png" alt="NIMCET 2025 Web Project" />
